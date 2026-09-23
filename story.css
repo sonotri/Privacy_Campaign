@@ -1,0 +1,188 @@
+/* A continuous arcade gives way to a quiet, evidence-led final act. */
+.quiet-primary{background:#eee8f6;color:#21142f;border:0;border-radius:10px;padding:16px 24px;font:600 16px/1.4 "Segoe UI","Malgun Gothic",sans-serif;min-height:54px;white-space:nowrap}
+.quiet-primary:hover{background:#fff}
+.immersive-play{max-width:1120px;padding-bottom:28px}
+.round-feedback{display:flex;align-items:center;justify-content:space-between;gap:28px;margin:22px 40px 0;padding:22px 0;border-top:1px solid #473456;min-height:110px}
+.round-message>span{font:12px monospace;letter-spacing:2px;color:#cba0ed}
+.round-message p{font-size:18px;line-height:1.7;margin:8px 0 0;color:#d5c9e2}
+.round-message strong{color:#f3edf9;font-weight:600}
+.immersive-play .play-bottom{padding-top:0;justify-content:space-between}
+.immersive-play .play-bottom>span{font:12px monospace;color:#9f8ab2;letter-spacing:1px}
+.in-story{background:#0a090c;background-image:none;color:#eeeae7;transition:background-color .7s;color-scheme:dark;font-family:"Segoe UI","Malgun Gothic",sans-serif}
+.in-story .topbar{display:none}
+.in-story #app{min-height:100dvh}
+.in-story button{font-family:inherit}
+.scene-label{font:12px/1.6 monospace;letter-spacing:2px;color:#ad929c}
+.scene-footnote{font-size:14px;line-height:1.8;color:#8f868e;display:block}
+.story-next{display:inline-flex;align-items:center;justify-content:space-between;gap:32px;min-height:54px;border:0;border-radius:8px;background:#eee9e5;color:#1c161b;padding:17px 24px;font-size:16px;font-weight:600;line-height:1.5;text-align:left;max-width:100%;transition:background .2s}
+.story-next>span{font-weight:400;font-size:22px}
+.story-next:hover{background:#fff}
+.story-back{background:transparent;border:0;padding:12px 6px;min-height:48px;font-size:14px;color:#c1b5be;line-height:1.6}
+.story-back:hover:not(:disabled){color:#fff}
+.story-back:disabled{opacity:.28;cursor:default}
+.reveal-scene{min-height:100dvh;max-width:1160px;margin:auto;padding:52px 64px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.reveal-kicker{display:flex;gap:20px;flex-wrap:wrap;font:12px monospace;letter-spacing:2px;color:#797078}
+.reveal-kicker span{color:#dcbbb5}
+.reveal-main{padding:66px 0 38px;animation:storyArrive 1.2s both}
+.reveal-main h1{font-size:clamp(36px,5.6vw,72px);font-weight:500;letter-spacing:-2.8px;line-height:1.3;margin:24px 0 30px}
+.reveal-main em{font-style:normal;color:#dab0a8}
+.reveal-line{font-size:20px;line-height:1.9;color:#b7aab3;margin:0}
+.reveal-line strong{font-weight:500;color:#f5e9e5}
+.reveal-scene>.scene-footnote{margin-top:22px}
+.evidence-screen{max-width:980px;margin:auto;padding:64px 48px}
+.evidence-header h1{font-size:clamp(30px,4vw,48px);line-height:1.45;font-weight:400;letter-spacing:-1.3px;margin:24px 0}
+.evidence-header h1 em{font-style:normal;color:#d9ada4}
+.evidence-header p{font-size:17px;line-height:1.9;color:#b7abb4;max-width:650px}
+.evidence-ledger{margin:40px 0 28px;border-top:1px solid #393039}
+.evidence-row{display:grid;grid-template-columns:28px 48px minmax(0,1fr) auto;align-items:center;gap:22px;padding:20px 0;border-bottom:1px solid #2c252c;animation:storyArrive .6s both;animation-delay:calc(var(--entry)*.12s)}
+.evidence-order{font:12px monospace;color:#967c88}
+.evidence-row img{width:48px;height:72px;object-fit:cover;border-radius:3px;opacity:.8}
+.evidence-row>div{min-width:0}
+.evidence-row>div>span{font-size:13px;color:#a18f9a;display:block;margin-bottom:7px}
+.evidence-row strong{font-size:17px;font-weight:500;line-height:1.65;color:#e5dcdF;overflow-wrap:anywhere}
+.evidence-price{font:13px monospace;color:#bca5b3;white-space:nowrap}
+.kept-line{font-size:14px;line-height:1.9;color:#9f8f9b}
+.kept-line strong{color:#c6bac3;display:block;font-weight:400;margin-top:5px}
+.evidence-question{padding:30px 0;margin-top:15px}
+.evidence-question h2{font-size:clamp(24px,3.2vw,34px);font-weight:400;line-height:1.6;margin:0 0 28px}
+.no-evidence{padding:40px 0;color:#b4a9b2;font-size:18px}
+.linking-scene{min-height:100dvh;max-width:700px;margin:auto;padding:50px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.linking-scene h1{font-size:clamp(24px,4.5vw,38px);font-weight:400;letter-spacing:2px;margin:25px 0}
+.linking-scene .data-graph{max-width:390px;margin:15px 0;background:none;border-color:#30232d}
+.linking-scene .graph-center{background:#100d12;border-color:#aa7c94;box-shadow:none}
+.linking-scene .graph-node{background:#171018;border-color:#75576c}
+.linking-scene .data-link{stroke:#d6a7b8;stroke-dasharray:80;animation:connectData 2s both}
+.linking-scene p{font-size:17px;line-height:1.8;color:#c0acb9}
+.linking-scene .text-button{color:#9d8794;font-size:14px}
+.dossier-screen{max-width:1280px;min-height:100dvh;margin:auto;padding:44px 64px;display:flex;flex-direction:column}
+.dossier-header{display:flex;justify-content:space-between;gap:18px;align-items:center;border-bottom:1px solid #352a32;padding-bottom:25px;font-size:13px;color:#a38e9b}
+.dossier-layout{display:grid;grid-template-columns:minmax(200px,.7fr) minmax(0,1.4fr);gap:70px;align-items:start;margin:66px 0 46px;flex:1}
+.dossier-sources h2{font-size:14px;color:#b4a1ac;font-weight:400;margin:0 0 24px}
+.source-chain{border-left:1px solid #896573;padding-left:24px}
+.source-fact{position:relative;padding:0 0 26px}
+.source-fact:last-child{padding-bottom:0}
+.source-fact::before{content:'';position:absolute;left:-25px;top:8px;width:10px;border-top:1px solid #c5a3b2}
+.source-fact>span{display:block;font-size:13px;color:#b796a5;margin-bottom:8px}
+.source-fact>strong{display:block;font-size:16px;line-height:1.8;font-weight:400;color:#e4d7de;overflow-wrap:anywhere}
+.connection-terminal{display:flex;align-items:center;gap:12px;margin:27px 0 0 24px;font-size:13px;color:#bda1ad}
+.connection-terminal span{font-size:25px;transform:rotate(-90deg)}
+.source-empty{font-size:16px;color:#b3a4ac;margin:0;line-height:1.8}
+.conclusion{animation:storyArrive .6s both;outline:0}
+.conclusion-label{font-size:13px;color:#d5a99d;letter-spacing:1px}
+.conclusion h1{font-size:clamp(28px,3.4vw,44px);font-weight:500;line-height:1.4;letter-spacing:-1.5px;margin:18px 0 28px;color:#f0e9e5}
+.conclusion blockquote{margin:0 0 30px;padding:22px 26px;border-left:2px solid #c9968f;background:#171115;color:#eddbd6;font-size:20px;line-height:1.85;font-weight:400}
+.consequence h2{font-size:14px;font-weight:500;color:#cfa897;margin:0 0 12px}
+.consequence p{font-size:17px;line-height:1.95;color:#c3b6bf;margin:0}
+.inference-limit{font-size:14px;line-height:1.85;color:#9a8995;margin:24px 0 0}
+.dossier-footer{display:flex;justify-content:space-between;align-items:center;gap:26px;padding-top:26px;border-top:1px solid #352a32}
+.scenario-risk>span{font-size:12px;color:#ac939f;margin-right:14px}
+.scenario-risk strong{font-size:16px;font-weight:400;letter-spacing:3px;color:#d4a4a3}
+.scenario-risk i{color:#63515e;font-style:normal}
+.scenario-risk small{font-size:12px;color:#8d7885;display:block;margin-top:8px}
+.dossier-footer nav{display:flex;align-items:center;gap:22px}
+.reading-room{width:min(100%,1080px);min-height:100dvh;padding:36px 64px;margin:auto;display:flex;flex-direction:column}
+.reading-header{display:flex;justify-content:space-between;gap:24px;font:12px/1.8 monospace;letter-spacing:2px;color:#93858f}
+.reading-page{flex:1;display:flex;flex-direction:column;justify-content:center;padding:58px 0 64px;max-width:820px;outline:0;animation:storyArrive .45s both}
+.chapter-label{font-size:14px;line-height:1.8;color:#b9a1aa;margin-bottom:20px}
+.reading-page h1{font-size:clamp(30px,4.7vw,56px);line-height:1.35;font-weight:500;letter-spacing:-1.8px;margin:0 0 34px;color:#f0eae6}
+.chapter-copy{max-width:670px}
+.chapter-copy p{font-size:clamp(18px,2vw,22px);line-height:1.95;color:#bfb3bb;letter-spacing:-.25px;margin:0}
+.chapter-copy p+p{margin-top:24px}
+.chapter-copy strong{font-weight:500;color:#f0d7ce}
+.chapter-closing{font-size:16px;color:#d8b3a7;line-height:1.9;margin:34px 0 0}
+.reading-footer{padding-top:0}
+.reading-progress{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:23px}
+.reading-progress span{height:2px;background:#30262e}
+.reading-progress .read{background:#b18e99}
+.reading-footer nav{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.reading-room .story-next{background:transparent;color:#e8d3ca;border:1px solid #5f4b55;min-width:180px}
+.reading-room .story-next:hover{border-color:#c0a1ab;background:#1b1319}
+.end-scene{min-height:100dvh;max-width:900px;margin:auto;padding:64px 30px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.end-scene h1{font-size:clamp(42px,7vw,72px);line-height:1.3;font-weight:400;letter-spacing:-2px;margin:48px 0 30px}
+.end-scene em{font-style:normal;color:#d9b2a5}
+.end-scene p{font-size:16px;color:#b4a2ac;margin:0 0 48px}
+.end-scene>div{display:flex;gap:25px;flex-wrap:wrap;justify-content:center}
+@keyframes storyArrive{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:800px){
+ .dossier-screen{padding:32px}
+ .dossier-layout{gap:35px;grid-template-columns:minmax(170px,.65fr) minmax(0,1.4fr)}
+ .conclusion h1{font-size:30px}
+ .conclusion blockquote{font-size:18px;padding:18px 20px}
+ .dossier-footer{flex-wrap:wrap}
+ .dossier-footer nav{margin-left:auto}
+ .reading-room{padding:30px 40px}
+}
+@media(max-width:600px){
+ .immersive-play{margin-top:16px;min-height:calc(100dvh - 76px);justify-content:center}
+ .round-feedback{margin:12px 24px 0;gap:20px;padding:20px 0;align-items:stretch;flex-direction:column;min-height:0}
+ .round-message p{font-size:16px;line-height:1.75}
+ .round-feedback .quiet-primary{width:100%;font-size:16px}
+ .immersive-play .play-bottom{padding:12px 24px 0;align-items:center}
+ .immersive-play .play-bottom>span{font-size:11px;letter-spacing:.5px}
+ .reveal-scene{padding:36px 24px;justify-content:center}
+ .reveal-kicker{font-size:10px;line-height:1.8;gap:10px;letter-spacing:1px}
+ .reveal-main{padding:48px 0 32px}
+ .reveal-main h1{font-size:clamp(30px,7.7vw,44px);letter-spacing:-1.5px;margin:22px 0 26px}
+ .reveal-line{font-size:17px;line-height:1.9}
+ .reveal-scene .story-next{width:100%}
+ .scene-footnote{font-size:13px}
+ .evidence-screen{padding:36px 24px}
+ .evidence-header h1{font-size:28px;letter-spacing:-1px}
+ .evidence-header p{font-size:16px}
+ .evidence-row{grid-template-columns:20px 34px minmax(0,1fr);gap:12px;padding:16px 0}
+ .evidence-row img{width:34px;height:51px}
+ .evidence-row strong{font-size:15px}
+ .evidence-price{grid-column:3;margin-top:-5px;font-size:12px}
+ .evidence-question{padding:20px 0}
+ .evidence-question h2{font-size:25px}
+ .evidence-question .story-next{width:100%}
+ .dossier-screen{padding:28px 22px}
+ .dossier-header{padding-bottom:20px;font-size:12px}
+ .dossier-header .scene-label{font-size:11px;letter-spacing:1.2px}
+ .dossier-layout{display:flex;flex-direction:column;gap:28px;margin:28px 0}
+ .dossier-sources{width:100%}
+ .dossier-sources h2{font-size:13px;margin-bottom:18px}
+ .source-chain{display:flex;flex-wrap:wrap;gap:16px 24px;padding-left:16px}
+ .source-fact{padding:0;flex:1 1 110px;min-width:0}
+ .source-fact::before{display:none}
+ .source-fact>span{font-size:12px;margin-bottom:5px}
+ .source-fact>strong{font-size:14px;line-height:1.7}
+ .connection-terminal{margin:18px 0 0 16px;font-size:12px;gap:9px}
+ .connection-terminal span{transform:none;font-size:20px}
+ .conclusion h1{font-size:27px;letter-spacing:-1.1px;margin:16px 0 22px}
+ .conclusion blockquote{font-size:17px;line-height:1.9;padding:18px;margin-bottom:24px}
+ .consequence p{font-size:16px;line-height:1.9}
+ .inference-limit{font-size:13px;margin-top:18px}
+ .dossier-footer{gap:22px;padding-top:22px}
+ .dossier-footer nav{width:100%;justify-content:space-between;margin:0;gap:12px}
+ .dossier-footer .story-next{flex:1;max-width:250px}
+ .scenario-risk>span{font-size:12px}
+ .reading-room{padding:26px 24px}
+ .reading-header{font-size:11px;letter-spacing:1.5px}
+ .reading-page{padding:42px 0 48px}
+ .reading-page h1{font-size:clamp(27px,7.6vw,36px);letter-spacing:-1px;margin-bottom:28px}
+ .chapter-label{font-size:13px;margin-bottom:18px}
+ .chapter-copy p{font-size:18px;line-height:1.95}
+ .chapter-copy p+p{margin-top:20px}
+ .chapter-closing{font-size:15px}
+ .reading-footer nav{gap:12px}
+ .reading-room .story-next{min-width:0;font-size:15px;padding:14px 18px;gap:22px}
+ .reading-room .story-back{font-size:13px}
+ .reading-progress{gap:6px;margin-bottom:18px}
+}
+@media(prefers-reduced-motion:reduce){.in-story{transition:none}.reveal-main,.evidence-row,.conclusion,.reading-page,.linking-scene .data-link{animation:none}}
+
+
+/* The next choice occupies the centre only when all remaining spins are gone. */
+.exchange-dialog{width:min(540px,calc(100% - 40px));max-height:calc(100dvh - 40px);overflow:auto;margin:auto;padding:42px 40px 22px;border:1px solid #72528b;border-radius:20px;background:#100a1c;color:#f2eafa;box-shadow:0 24px 100px #0009;text-align:left}
+.exchange-dialog::backdrop{background:#04010cd9;backdrop-filter:blur(5px)}
+.exchange-dialog>.scene-label{color:#bba2d5;letter-spacing:3px}
+.exchange-dialog h1{font:500 clamp(34px,5vw,48px)/1.3 "Malgun Gothic",sans-serif;letter-spacing:-1.8px;margin:24px 0 18px}
+.exchange-dialog p{font:16px/1.85 "Malgun Gothic",sans-serif;color:#bbaeC9;margin:0 0 32px;word-break:keep-all}
+.exchange-cta{display:flex;width:100%;align-items:center;justify-content:space-between;gap:18px;min-height:80px;background:#ede3f7;color:#21152e;border:0;border-radius:12px;padding:22px 24px;font:600 23px/1.45 "Malgun Gothic",sans-serif;letter-spacing:-.8px}
+.exchange-cta:hover{background:#fff}
+.exchange-cta>span{font-size:28px;font-weight:400}
+.exchange-dialog>.story-back{display:block;margin:14px auto 0;color:#b3a0c2}
+@media(max-width:600px){.exchange-dialog{padding:30px 24px 16px}.exchange-dialog h1{font-size:36px;margin-top:22px}.exchange-dialog p{font-size:15px;margin-bottom:26px}.exchange-cta{min-height:72px;font-size:20px;padding:18px}.exchange-cta>span{font-size:24px}}
+
+.music-credit,.end-scene .music-credit{font:12px/1.8 "Segoe UI","Malgun Gothic",sans-serif;color:#94849f;text-align:center;margin:4px 20px 12px}.music-credit a{text-decoration:underline;text-underline-offset:3px}.end-scene .music-credit{margin-top:28px}
