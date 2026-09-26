@@ -64,7 +64,6 @@
         </div>
       </div>
       <div class="briefing-launch"><button class="launch-button" data-action="play">룰렛 시작하기 <span aria-hidden="true">→</span></button><p class="launch-caption"><span>첫 SPIN 1회 제공</span><span class="caption-divider" aria-hidden="true">·</span><span>추가 기회는 카드로 교환</span></p></div>
-      <details class="game-rules"><summary>게임 규칙</summary><ul><li>처음에 SPIN 1회를 받습니다. 첫 두 회에는 세 심볼이 서로 겹치지 않습니다.</li><li>세 번째 회부터 같은 심볼 3개가 나오면 당첨이며, 1회당 당첨 확률은 1/9입니다.</li><li>카드의 ★는 교환 가치입니다. 한 장씩, 한 번만 교환하며 ★ 하나당 SPIN 1회를 받습니다. BONUS는 이 총횟수를 뜻합니다.</li><li>남은 SPIN을 모두 사용한 뒤 다음 카드를 교환할 수 있습니다. 처음 받은 1회를 포함해 최대 13회입니다.</li><li>당첨, 직접 중단, 또는 SPIN과 카드 소진 시 종료합니다. 당첨 후 남은 SPIN은 사용하지 않습니다.</li></ul></details>
     </section>${footer(1)}`;
   }
   function playScreen() {
