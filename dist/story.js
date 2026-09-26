@@ -50,7 +50,7 @@
     const groups = new Set(), chosen = [];
     for (const item of eligible) if (!groups.has(item.group)) { groups.add(item.group); chosen.push(item); }
     if (chosen.length) return chosen.slice(0, 3).map(personalize);
-    return [{ ids: selected, level: 2, title: '따로였던 정보가,\n같은 사람의 기록이 됩니다.', inference: selected.map(id => `${resolved[id].label}: ${resolved[id].value}`).join(' · '), consequence: '각각의 정보만 볼 때보다 여러 특징을 함께 가진 대상으로 분류할 수 있습니다. 제공하는 항목 수뿐 아니라 어떤 기록과 함께 쓰이는지 확인해야 하는 이유입니다.', limit: '이 조합만으로 이름, 거주지, 온라인 계정 등을 확정할 수는 없습니다.' }];
+    return [{ ids: selected, level: 2, title: '하나씩 건넨 정보가\n서로 연결되기 시작합니다.', inference: selected.map(id => `${resolved[id].label}: ${resolved[id].value}`).join(' · '), consequence: '각각의 정보만 볼 때보다 여러 특징을 함께 가진 대상으로 분류할 수 있습니다. 제공하는 항목 수뿐 아니라 어떤 기록과 함께 쓰이는지 확인해야 하는 이유입니다.', limit: '이 조합만으로 이름, 거주지, 온라인 계정 등을 확정할 수는 없습니다.' }];
   }
   // 마지막 이야기 문구는 이 chapters 배열에서 수정합니다.
   const chapters = [
