@@ -27,9 +27,9 @@
       hint: " ",
     },
     school: {
-      label: "학교/소속",
+      label: "학교/학과",
       max: 60,
-      placeholder: "학교·학과 또는 소속",
+      placeholder: "학교/학과",
       hint: " ",
     },
     email: {

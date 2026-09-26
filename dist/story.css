@@ -94,7 +94,7 @@
 .reading-progress{display:grid;grid-template-columns:repeat(var(--chapters),1fr);gap:8px;margin-bottom:17px;overflow:hidden}
 .reading-progress span{height:2px;background:#30262e;transform-origin:left}
 .reading-progress .complete{background:#b18e99}
-.reading-progress .active{background:#b18e99;animation:storyProgress 5s linear both}
+.reading-progress .active{background:#b18e99;animation:storyProgress 4s linear both}
 .reading-autoplay{display:flex;justify-content:space-between;align-items:center;gap:20px;color:#8f828b;font-size:12px}
 .reading-autoplay .story-back{font-size:12px}
 .end-scene{min-height:100dvh;max-width:900px;margin:auto;padding:64px 30px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
