@@ -142,17 +142,15 @@
   }
   function howTo() {
     return `<section class="briefing-screen" aria-labelledby="briefing-title">
-      <div class="briefing-topline"><span class="eyebrow">[ HOW TO PLAY? ]</span><span class="briefing-edition">BLACK SWAN / ROULETTE</span></div>
       <div class="briefing-main">
-        <div class="briefing-copy"><span class="briefing-overline">THREE OF A KIND</span><h1 id="briefing-title">같은 심볼 3개,<br><em>JACKPOT.</em></h1><p>룰렛을 돌려 같은 심볼 3개를 맞춰보세요. <br>세 개의 심볼이 일치하면<br class="desktop-break"> 보상을 획득할 수 있습니다!</p><div class="briefing-reward"><span aria-hidden="true">✦</span><div><small>YOUR REWARD</small><strong>같은 심볼 3개 = 상품 당첨</strong></div></div></div>
+        <div class="briefing-copy"><h1 id="briefing-title">같은 심볼 3개,<br><em>JACKPOT.</em></h1><p>룰렛을 돌려 같은 심볼 3개를 맞춰보세요. <br>세 개의 심볼이 일치하면<br class="desktop-break"> 보상을 획득할 수 있습니다!</p><div class="briefing-reward">< aria-hidden="true"></div>
         <div class="briefing-demo" aria-label="백조 심볼 3개가 일치하는 당첨 예시">
           <div class="demo-orbit" aria-hidden="true"></div><div class="demo-orbit inner" aria-hidden="true"></div>
-          <div class="demo-label"><span>WINNING COMBINATION</span><b>01 — 02 — 03</b></div>
           <div class="demo-cards">${[0, 1, 2].map((i) => `<div class="demo-card" style="--card-index:${i}"><img src="${asset("swan.png")}" alt="${i + 1}번째 백조 심볼" width="1254" height="1254"><span>${String(i + 1).padStart(2, "0")}</span></div>`).join("")}</div>
           <div class="demo-payline" aria-hidden="true"><i></i><span>✦</span><i></i></div><div class="demo-match">MATCH <span>×3</span></div>
         </div>
       </div>
-      <div class="briefing-launch"><button class="launch-button" data-action="play">룰렛 시작하기 <span aria-hidden="true">→</span></button><p class="launch-caption"><span>첫 SPIN 1회 제공</span><span class="caption-divider" aria-hidden="true">·</span><span>추가 기회는 카드로 교환</span></p></div>
+      <div class="briefing-launch"><button class="launch-button" data-action="play">룰렛 시작하기 <span aria-hidden="true">→</span></button><p class="launch-caption"></p></div>
     </section>${footer(1)}`;
   }
   function playScreen() {
@@ -165,8 +163,8 @@
       availableCards().some((card) => card.stars > 1);
     const receipt = cards.find((card) => card.id === state.receipt);
     return `<section class="play-screen immersive-play"><div class="game-hud"><div><span class="eyebrow">YOUR CHANCE</span><div class="spin-count"><strong>${String(state.spins).padStart(2, "0")}</strong><span>SPINS LEFT</span></div></div><div class="round-count">ROUND <b>${String(state.rounds + (!state.spinning && !missed ? 1 : 0)).padStart(2, "0")}</b><span>남은 카드 ${availableCards().length} / 6</span></div></div>
-      <div class="machine ${state.spinning ? "is-spinning" : ""}"><img class="machine-frame" src="${asset("roulette.png")}" alt="네온 룰렛 머신" width="1672" height="941"><div class="reels" aria-label="룰렛 심볼">${state.reels.map((value, index) => `<div class="reel reel-${index}" data-reel="${index}"><img src="${asset(symbols[value].file)}" alt="${index + 1}번 심볼: ${symbols[value].name}" width="1254" height="1254"></div>`).join("")}</div><button class="spin-hotspot" data-action="spin" aria-label="룰렛 돌리기, 남은 SPIN ${state.spins}회" ${state.spinning || !state.spins ? "disabled" : ""}><span>${state.spinning ? "SPINNING…" : "SPIN"}</span></button><div class="spin-status" aria-live="polite">${state.spinning ? "세 개의 심볼이 멈추는 중…" : missed ? "MISS · 세 심볼이 일치하지 않았습니다" : "SPIN을 눌러 행운을 확인하세요"}</div></div>
-      <div class="round-feedback" aria-live="polite"><div class="round-message"><span>${receipt ? "TRADE CONFIRMED" : offer ? "BLACK SWAN" : exhausted ? "LAST SPIN" : missed ? "MISS" : "MATCH THREE"}</span><p>${receipt ? `${receipt.name} → <strong>SPIN +${receipt.stars}</strong>` : offer ? "조금 더 가치 있는 정보라면,<br><strong>BONUS SPIN을 드릴게요.</strong>" : exhausted ? "모든 기회를 사용했습니다.<br>이제, 당신의 선택을 확인하세요." : missed && state.spins ? `아직 <strong>${state.spins}번</strong>의 기회가 남아 있습니다.` : missed ? "남은 SPIN을 모두 사용했습니다.<br>카드 한 장으로 기회를 이어갈까요?" : "같은 심볼 3개를 맞추면 JACKPOT!"}</p></div>${missed && state.spins ? '<button class="quiet-primary" data-action="spin">한 번 더 SPIN</button>' : exhausted ? '<button class="quiet-primary" data-action="finish">나의 선택 확인</button>' : ""}</div>
+      <div class="machine ${state.spinning ? "is-spinning" : ""}"><img class="machine-frame" src="${asset("roulette.png")}" alt="네온 룰렛 머신" width="1672" height="941"><div class="reels" aria-label="룰렛 심볼">${state.reels.map((value, index) => `<div class="reel reel-${index}" data-reel="${index}"><img src="${asset(symbols[value].file)}" alt="${index + 1}번 심볼: ${symbols[value].name}" width="1254" height="1254"></div>`).join("")}</div><button class="spin-hotspot" data-action="spin" aria-label="룰렛 돌리기, 남은 SPIN ${state.spins}회" ${state.spinning || !state.spins ? "disabled" : ""}><span>${state.spinning ? "SPINNING…" : "SPIN"}</span></button><div class="spin-status" aria-live="polite">${state.spinning ? "Roulette start" : missed ? "MISS · 세 심볼이 일치하지 않았습니다" : " "}</div></div>
+      <div class="round-feedback" aria-live="polite"><div class="round-message"><span>${receipt ? "TRADE CONFIRMED" : offer ? "BLACK SWAN" : exhausted ? "LAST SPIN" : missed ? "MISS" : " "}</span><p>${receipt ? `${receipt.name} → <strong>SPIN +${receipt.stars}</strong>` : offer ? "조금 더 가치 있는 정보라면,<br><strong>BONUS SPIN!</strong>" : exhausted ? "모든 기회를 사용했습니다.<br>이제, 당신의 선택을 확인하세요." : missed && state.spins ? `아직 <strong>${state.spins}번</strong>의 기회가 남아 있습니다.` : missed ? "남은 SPIN을 모두 사용했습니다.<br>카드 한 장으로 기회를 이어갈까요?" : "같은 심볼 3개를 맞추면 JACKPOT!"}</p></div>${missed && state.spins ? '<button class="quiet-primary" data-action="spin">한 번 더 SPIN</button>' : exhausted ? '<button class="quiet-primary" data-action="finish">나의 선택 확인</button>' : ""}</div>
       <div class="play-bottom"><span>${offer ? "★★ 총 2회 · ★★★ 총 3회" : "BLACK SWAN ROULETTE"}</span>${!exhausted ? `<button class="text-button" data-action="${canTrade ? "cancel" : "finish"}" ${state.spinning ? "disabled" : ""}>여기서 마치기</button>` : ""}</div></section>${canTrade ? exchangeDialog() : ""}`;
   }
   function exchangeDialog() {
@@ -180,7 +178,7 @@
   }
   function tradeScreen() {
     const selected = cards.find((card) => state.selected.includes(card.id));
-    return `<section class="trade-screen"><header class="section-header"><div class="eyebrow">[ YOUR DATA ]</div><h1>어떤 기회와 바꾸시겠어요?</h1><p>교환할 개인정보 카드 <strong>한 장</strong>을 선택하세요.</p></header><div class="trade-legend"><span>★ <b>SPIN ×1</b></span><span>★★ <b>SPIN ×2</b></span><span>★★★ <b>SPIN ×3</b></span></div><p class="exchange-note">별은 게임 안에서의 교환 가치입니다. 도전 횟수가 늘어나며, 1회당 당첨 확률은 같습니다.</p><div class="card-grid">${cards.map((card) => cardMarkup(card)).join("")}</div><div id="card-editor" class="card-editor">${personal.editor()}</div><div class="trade-bar"><div><span id="selected-count">${selected ? selected.name : "카드 한 장을 선택하세요"}</span><strong id="trade-bonus">+${bonus()} <small>SPINS</small></strong></div><button class="primary" id="confirm-trade" data-action="confirm-trade" ${personal.valid() ? "" : "disabled"}>입력한 정보로 교환</button></div><div class="trade-bottom"><p class="small">교환할 카드의 내용을 직접 작성해주세요. 입력 내용은 이 브라우저에서만 사용합니다.</p><button class="text-button" data-action="cancel">교환 중단하기</button></div></section>${footer(1)}`;
+    return `<section class="trade-screen"><header class="section-header"><div class="eyebrow">[ YOUR DATA ]</div><h1>어떤 기회와 바꾸시겠어요?</h1><p>교환할 개인정보 카드 <strong>한 장</strong>을 선택하세요.</p></header><div class="trade-legend"><span>★ <b>SPIN ×1</b></span><span>★★ <b>SPIN ×2</b></span><span>★★★ <b>SPIN ×3</b></span></div><p class="exchange-note">별은 게임 안에서의 교환 가치입니다. 교환시 도전 횟수가 늘어납니다.</p><div class="card-grid">${cards.map((card) => cardMarkup(card)).join("")}</div><div id="card-editor" class="card-editor">${personal.editor()}</div><div class="trade-bar"><div><span id="selected-count">${selected ? selected.name : "카드 한 장을 선택하세요"}</span><strong id="trade-bonus">+${bonus()} <small>SPINS</small></strong></div><button class="primary" id="confirm-trade" data-action="confirm-trade" ${personal.valid() ? "" : "disabled"}>입력한 정보로 교환</button></div><div class="trade-bottom"><button class="text-button" data-action="cancel">교환 중단하기</button></div></section>${footer(1)}`;
   }
 
   function cancelScreen() {
@@ -191,7 +189,7 @@
   }
   function revealScreen() {
     const count = state.used.length;
-    return `<section class="reveal-scene"><div class="reveal-kicker"><del>BLACK SWAN ROULETTE</del><span>CONSENT TEST</span></div><div class="reveal-main"><p class="scene-label">THE GAME IS OVER</p><h1>Game Over.<br><em>이제 선택의 결과를 확인할 차례입니다.</em></h1><p class="reveal-line">${count ? `총 <strong>${count}장의 정보</strong>를 건넸습니다.<br>내가 건넨 정보가 어떤 의미를 가질 수 있는지 확인해볼까요?.` : "이번 게임에서는 개인정보를 교환하지 않았습니다."}</p></div><button class="story-next" data-action="used">${count ? "내가 건넨 정보 보기" : "나의 선택 돌아보기"}<span aria-hidden="true">→</span></button><span class="scene-footnote">${state.won ? " " : count ? " " : "이번 게임에서 사용한 개인정보 카드 0장"}</span></section>`;
+    return `<section class="reveal-scene"><div class="reveal-kicker"><span>CONSENT TEST</span></div><div class="reveal-main"><p class="scene-label">THE GAME IS OVER</p><h1>Game Over.<br><em>이제 선택의 결과를 확인할 차례입니다.</em></h1><p class="reveal-line">${count ? `총 <strong>${count}장의 정보</strong>를 건넸습니다.<br>내가 건넨 정보가 어떤 의미를 가질 수 있는지 확인해볼까요?.` : "이번 게임에서는 개인정보를 교환하지 않았습니다."}</p></div><button class="story-next" data-action="used">${count ? "내가 건넨 정보 보기" : "나의 선택 돌아보기"}<span aria-hidden="true">→</span></button><span class="scene-footnote">${state.won ? " " : count ? " " : "이번 게임에서 사용한 개인정보 카드 0장"}</span></section>`;
   }
   function usedScreen() {
     const used = usedCards(),
