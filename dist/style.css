@@ -37,3 +37,6 @@ body:not([data-screen="home"]){background:radial-gradient(ellipse at 50% 8%,#231
 @keyframes machineKick{0%,100%{transform:translateX(0)}20%{transform:translateX(-2px)}40%{transform:translateX(2px)}60%{transform:translateX(-1px)}80%{transform:translateX(1px)}}
 @media(prefers-reduced-motion:reduce){.reel-strip{filter:none}}
 .start-hotspot{z-index:1}
+body[data-screen="trade"]{overflow-y:auto}
+.trade-bar{margin-top:42px}
+@media(max-width:650px){.trade-bar{position:relative;bottom:auto;margin:38px -4px 0}}

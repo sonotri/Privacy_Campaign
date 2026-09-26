@@ -12,9 +12,20 @@
 
 ## 프로젝트 소개
 
-**BLACK SWAN ROULETTE**는 보상을 얻기 위해 우리가 어떤 개인정보를 선택하게 되는지, 그리고 평범해 보이는 정보가 서로 연결될 때 무엇을 추정할 수 있는지를 직접 경험하는 선택형 웹 게임입니다.
+<table width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+  <tr>
+    <td align="center" width="50%" style="padding: 0;">
+      <img src="./img/cardnews_img/1.png" alt="개인정보 카드뉴스 1" width="100%" style="display: block;" />
+    </td>
+    <td align="center" width="50%" style="padding: 0;">
+      <img src="./img/cardnews_img/2.png" alt="개인정보 카드뉴스 2" width="100%" style="display: block;" />
+    </td>
+  </tr>
+</table>
 
-플레이어는 룰렛의 당첨 여부만 확인하는 대신, 추가 기회를 얻기 위해 개인정보 카드를 선택하고 내용을 직접 작성합니다. 게임이 끝나면 건넨 정보의 기록과 연결 가능성을 살펴보며 개인정보의 가치가 정보 하나가 아니라 사용 맥락과 조합에 따라 달라진다는 점을 생각해볼 수 있습니다.
+**BLACK SWAN ROULETTE**는 룰렛 게임을 통해 개인정보 제공과 선택의 의미를 직접 체험해보는 웹 게임입니다. 추가 기회를 얻기 위해 개인정보를 선택하고 게임이 끝난 뒤에는 자신이 제공한 정보들이 서로 연결되었을 때 어떤 새로운 단서가 만들어질 수 있는지를 확인합니다.
+
+이를 통해 개인정보를 단순히 ‘중요한 정보’와 ‘중요하지 않은 정보’로 나누는 것이 아닌 정보의 가치가 사용 목적과 맥락 그리고 다른 정보와의 결합에 따라 달라질 수 있음을 직접 확인할 수 있도록 구성하였습니다.
 
 <br />
 
@@ -22,11 +33,8 @@
 
 - [게임 플레이하기](https://sonotri.github.io/Privacy_Campaign/)
 - 시작 화면에서 게임을 시작한 뒤 룰렛을 돌립니다.
-- 처음에는 무료 SPIN 1회를 받으며, 첫 두 번의 룰렛은 세 심볼이 겹치지 않습니다.
-- 세 번째 SPIN부터 세 심볼이 모두 같으면 JACKPOT이며, 한 번의 당첨 확률은 1/9입니다.
+- 처음에는 무료 SPIN 1회를 받으며 세 심볼이 모두 같으면 JACKPOT(당첨)입니다.
 - 기회를 모두 사용하면 개인정보 카드 한 장을 선택하고 내용을 직접 작성해 추가 SPIN과 교환합니다.
-- 교환한 정보는 기록 화면과 연결 사례 화면에서 다시 확인합니다.
-- 마지막 이야기는 7개 장면으로 구성되며 4초 간격으로 자동 전환됩니다. 내용이 길면 화면 안에서 스크롤해 읽을 수 있습니다.
 
 <br />
 
@@ -37,10 +45,8 @@
 - 닉네임과 관심사
 - 생년월일과 학교/소속
 - 이메일 주소와 거주지 정보
-- 하나씩 제공한 정보가 같은 사람의 기록으로 연결되는 과정
-- 결합된 정보로 가능한 추정과 그 추정의 한계
 
-게임에서 제시하는 연결 사례는 교육용 시나리오입니다.
+게임이 끝난 뒤에는 자신이 선택한 정보들을 다시 살펴보며 각각의 정보가 서로 연결되었을 때 어떤 새로운 단서가 만들어질 수 있는지 확인합니다. 또한 이러한 정보만으로 어디까지 추정할 수 있는지 그리고 그 추정에는 어떤 한계가 있는지도 함께 살펴봅니다.
 
 <br />
 
@@ -48,19 +54,31 @@
 
 <table align="center">
   <tr>
-    <td align="center" width="220">
+    <td align="center" width="220" style="background-color: #ffffff;">
       <a href="https://github.com/sonotri">
         <img src="https://github.com/sonotri.png" width="96" alt="sonotri" /><br />
         <strong>sonotri</strong>
       </a><br />
-      <sub>Project contributor</sub>
+      <sub>Planning · Design · Development · Operate</sub>
     </td>
-    <td align="center" width="220">
+    <td align="center" width="220" style="background-color: #f3f4f6;">
       <a href="https://github.com/yebbis">
         <img src="https://github.com/yebbis.png" width="96" alt="yebbis" /><br />
         <strong>yebbis</strong>
       </a><br />
-      <sub>Project contributor</sub>
+      <sub>Planning · Design · Development · Operate</sub>
     </td>
-  </tr>
-</table>
+    <td align="center" width="220" style="background-color: #ffffff;">
+      <a href="https://github.com/EunjuYi">
+        <img src="https://github.com/EunjuYi.png" width="96" alt="yebbis" /><br />
+        <strong>EunjuYi</strong>
+      </a><br />
+      <sub>Design · Development · Operate</sub>
+    </td>
+    <td align="center" width="220" style="background-color: #f3f4f6;">
+      <a href="https://github.com/umini1002">
+        <img src="https://github.com/umini1002.png" width="96" alt="yebbis" /><br />
+        <strong>umini1002</strong>
+      </a><br />
+      <sub>Design · Development · Operate</sub>
+    </td>
