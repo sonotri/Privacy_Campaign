@@ -24,7 +24,7 @@
 
 <br />
 
-## 주요 개인정보 시나리오
+## 시나리오
 
 개인정보 카드는 일상에서 쉽게 제공할 수 있는 정보와 연락·생활 영역의 정보를 함께 다룹니다.
 
@@ -36,32 +36,32 @@
 
 <br />
 
-## 제작
+## ✨제작
 
 <table align="center">
   <tr>
-    <td align="center" width="220" style="background-color: #ffffff;">
+    <td align="center" width="220" bgcolor="#ffffff">
       <a href="https://github.com/sonotri">
         <img src="https://github.com/sonotri.png" width="96" alt="sonotri" /><br />
         <strong>sonotri</strong>
       </a><br />
       <sub>Planning · Design · Development · Operate</sub>
     </td>
-    <td align="center" width="220" style="background-color: #f3f4f6;">
+    <td align="center" width="220" bgcolor="#f3f4f6">
       <a href="https://github.com/yebbis">
         <img src="https://github.com/yebbis.png" width="96" alt="yebbis" /><br />
         <strong>yebbis</strong>
       </a><br />
       <sub>Planning · Design · Development · Operate</sub>
     </td>
-    <td align="center" width="220" style="background-color: #ffffff;">
+    <td align="center" width="220" bgcolor="#ffffff">
       <a href="https://github.com/EunjuYi">
         <img src="https://github.com/EunjuYi.png" width="96" alt="yebbis" /><br />
         <strong>EunjuYi</strong>
       </a><br />
       <sub>Design · Development · Operate</sub>
     </td>
-    <td align="center" width="220" style="background-color: #f3f4f6;">
+    <td align="center" width="220" bgcolor="#f3f4f6">
       <a href="https://github.com/umini1002">
         <img src="https://github.com/umini1002.png" width="96" alt="yebbis" /><br />
         <strong>umini1002</strong>
