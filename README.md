@@ -1,15 +1,5 @@
 # BLACK SWAN ROULETTE
 
-<p align="center">
-  <img src="./dist/assets/start.png" alt="BLACK SWAN ROULETTE 시작 화면" width="100%" />
-</p>
-
-<p align="center">
-  <a href="https://sonotri.github.io/Privacy_Campaign/" target="_blank"><strong>게임 플레이하기</strong></a>
-</p>
-
-<br>
-
 ## 프로젝트 소개
 
 <p><img src="./img/cardnews_img/1.png" alt="개인정보 카드뉴스 1" width="50%" /><img src="./img/cardnews_img/2.png" alt="개인정보 카드뉴스 2" width="50%" /></p>
@@ -22,7 +12,12 @@
 
 ## 게임 플레이
 
-- [게임 플레이하기](https://sonotri.github.io/Privacy_Campaign/)
+<p><img src="./img/cardnews_img/6.png" alt="개인정보 카드뉴스 1" width="50%" /><img src="./img/cardnews_img/7.png" alt="개인정보 카드뉴스 2" width="50%" /></p>
+
+<p align="center">
+  <a href="https://sonotri.github.io/Privacy_Campaign/" target="_blank"><strong>게임 플레이하기</strong></a>
+</p>
+
 - 시작 화면에서 게임을 시작한 뒤 룰렛을 돌립니다.
 - 처음에는 무료 SPIN 1회를 받으며 세 심볼이 모두 같으면 JACKPOT!
 - 기회를 모두 사용하면 개인정보 카드 한 장을 선택하고 내용을 직접 작성해 추가 SPIN과 교환합니다.
