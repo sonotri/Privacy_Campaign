@@ -2,7 +2,7 @@
 
 ## 프로젝트 소개
 
-<p><img src="./img/cardnews_img/1.png" alt="개인정보 카드뉴스 1" width="50%" /><img src="./img/cardnews_img/2.png" alt="개인정보 카드뉴스 2" width="50%" /></p>
+<p><img src="./img/cardnews_img/1.png" alt="개인정보 카드뉴스 1" width="49.8%" />&#8202;<img src="./img/cardnews_img/2.png" alt="개인정보 카드뉴스 2" width="49.8%" /></p>
 
 **BLACK SWAN ROULETTE**는 룰렛 게임을 통해 개인정보 제공과 선택의 의미를 직접 체험해보는 웹 게임입니다. 추가 기회를 얻기 위해 개인정보를 선택하고 게임이 끝난 뒤에는 자신이 제공한 정보들이 서로 연결되었을 때 어떤 새로운 단서가 만들어질 수 있는지를 확인합니다.
 
@@ -12,7 +12,7 @@
 
 ## 게임 플레이
 
-<p><img src="./img/cardnews_img/6.png" alt="개인정보 카드뉴스 1" width="50%" /><img src="./img/cardnews_img/7.png" alt="개인정보 카드뉴스 2" width="50%" /></p>
+<p><img src="./img/cardnews_img/6.png" alt="개인정보 카드뉴스 1" width="49.8%" />&#8202;<img src="./img/cardnews_img/7.png" alt="개인정보 카드뉴스 2" width="49.8%" /></p>
 
 <p align="center">
   <a href="https://sonotri.github.io/Privacy_Campaign/" target="_blank"><strong>게임 플레이하기</strong></a>
