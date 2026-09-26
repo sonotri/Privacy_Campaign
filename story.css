@@ -91,18 +91,19 @@
 .chapter-copy strong{font-weight:500;color:#f0d7ce}
 .chapter-closing{font-size:16px;color:#d8b3a7;line-height:1.9;margin:34px 0 0}
 .reading-footer{padding-top:0}
-.reading-progress{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:23px}
-.reading-progress span{height:2px;background:#30262e}
-.reading-progress .read{background:#b18e99}
-.reading-footer nav{display:flex;justify-content:space-between;align-items:center;gap:20px}
-.reading-room .story-next{background:transparent;color:#e8d3ca;border:1px solid #5f4b55;min-width:180px}
-.reading-room .story-next:hover{border-color:#c0a1ab;background:#1b1319}
+.reading-progress{display:grid;grid-template-columns:repeat(var(--chapters),1fr);gap:8px;margin-bottom:17px;overflow:hidden}
+.reading-progress span{height:2px;background:#30262e;transform-origin:left}
+.reading-progress .complete{background:#b18e99}
+.reading-progress .active{background:#b18e99;animation:storyProgress 7s linear both}
+.reading-autoplay{display:flex;justify-content:space-between;align-items:center;gap:20px;color:#8f828b;font-size:12px}
+.reading-autoplay .story-back{font-size:12px}
 .end-scene{min-height:100dvh;max-width:900px;margin:auto;padding:64px 30px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
 .end-scene h1{font-size:clamp(42px,7vw,72px);line-height:1.3;font-weight:400;letter-spacing:-2px;margin:48px 0 30px}
 .end-scene em{font-style:normal;color:#d9b2a5}
 .end-scene p{font-size:16px;color:#b4a2ac;margin:0 0 48px}
 .end-scene>div{display:flex;gap:25px;flex-wrap:wrap;justify-content:center}
 @keyframes storyArrive{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes storyProgress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media(max-width:800px){
  .dossier-screen{padding:32px}
  .dossier-layout{gap:35px;grid-template-columns:minmax(170px,.65fr) minmax(0,1.4fr)}
@@ -165,12 +166,11 @@
  .chapter-copy p{font-size:18px;line-height:1.95}
  .chapter-copy p+p{margin-top:20px}
  .chapter-closing{font-size:15px}
- .reading-footer nav{gap:12px}
- .reading-room .story-next{min-width:0;font-size:15px;padding:14px 18px;gap:22px}
- .reading-room .story-back{font-size:13px}
+ .reading-autoplay{gap:12px}
+ .reading-autoplay .story-back{font-size:12px}
  .reading-progress{gap:6px;margin-bottom:18px}
 }
-@media(prefers-reduced-motion:reduce){.in-story{transition:none}.reveal-main,.evidence-row,.conclusion,.reading-page,.linking-scene .data-link{animation:none}}
+@media(prefers-reduced-motion:reduce){.in-story{transition:none}.reveal-main,.evidence-row,.conclusion,.reading-page,.linking-scene .data-link{animation:none}.reading-progress .active{animation:none}}
 
 
 /* The next choice occupies the centre only when all remaining spins are gone. */

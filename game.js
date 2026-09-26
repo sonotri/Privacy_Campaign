@@ -8,8 +8,8 @@
     { id: 'hobby', name: '관심사', stars: 1, file: 'hobby_card.png', detail: '내 취향과 관심을 보여주는 정보' },
     { id: 'birthday', name: '생년월일', stars: 2, file: 'birthday_card.png', detail: '나이와 생일을 알려주는 정보' },
     { id: 'school', name: '학교/소속', stars: 2, file: 'school_affiliation_card.png', detail: '내가 속한 학교나 단체에 관한 정보' },
-    { id: 'photo', name: '사진', stars: 3, file: 'photo_card.png', detail: '내 모습과 주변 맥락을 보여주는 정보' },
-    { id: 'location', name: '위치정보', stars: 3, file: 'location_card.png', detail: '내가 머무르고 이동하는 장소' },
+    { id: 'email', name: '이메일 주소', stars: 3, file: 'email_card.png', detail: '연락과 계정 연결에 쓰이는 주소' },
+    { id: 'residence', name: '거주지 정보', stars: 3, file: 'residence_card.png', detail: '내가 생활하는 지역을 보여주는 정보' },
   ];
   const symbols = [{ name: '백조', file: 'swan.png' }, { name: '열쇠', file: 'key.png' }, { name: '별', file: 'star.png' }];
   const { facts: exampleFacts, casesFor: buildCases, chapters } = window.BlackSwanStory;
@@ -19,7 +19,6 @@
   const personal = window.BlackSwanPersonal.create({ examples: exampleFacts, onChange: refreshEntry });
   const esc = personal.escape;
   const casesFor = ids => buildCases(ids, personal.entries());
-  const clearButton = () => '<button class="clear-entry" data-action="clear-session">입력 지우고 처음으로</button>';
   let viewTimers = [], soundOn = true;
   const soundtrack = window.BlackSwanAudio.create();
   const syncSoundtrack = () => soundtrack.update({ enabled: soundOn, screen: state.screen, spinning: state.spinning });
@@ -65,7 +64,7 @@
         </div>
       </div>
       <div class="briefing-launch"><button class="launch-button" data-action="play">룰렛 시작하기 <span aria-hidden="true">→</span></button><p class="launch-caption"><span>첫 SPIN 1회 제공</span><span class="caption-divider" aria-hidden="true">·</span><span>추가 기회는 카드로 교환</span></p></div>
-      <details class="game-rules"><summary>게임 규칙</summary><ul><li>처음에 SPIN 1회를 받습니다. 첫 회부터 세 심볼을 각각 무작위로 추첨합니다.</li><li>같은 심볼 3개가 나오면 당첨입니다. 1회당 당첨 확률은 1/9입니다.</li><li>카드의 ★는 교환 가치입니다. 한 장씩, 한 번만 교환하며 ★ 하나당 SPIN 1회를 받습니다. BONUS는 이 총횟수를 뜻합니다.</li><li>남은 SPIN을 모두 사용한 뒤 다음 카드를 교환할 수 있습니다. 처음 받은 1회를 포함해 최대 13회입니다.</li><li>당첨, 직접 중단, 또는 SPIN과 카드 소진 시 종료합니다. 당첨 후 남은 SPIN은 사용하지 않습니다.</li></ul></details>
+      <details class="game-rules"><summary>게임 규칙</summary><ul><li>처음에 SPIN 1회를 받습니다. 첫 두 회에는 세 심볼이 서로 겹치지 않습니다.</li><li>세 번째 회부터 같은 심볼 3개가 나오면 당첨이며, 1회당 당첨 확률은 1/9입니다.</li><li>카드의 ★는 교환 가치입니다. 한 장씩, 한 번만 교환하며 ★ 하나당 SPIN 1회를 받습니다. BONUS는 이 총횟수를 뜻합니다.</li><li>남은 SPIN을 모두 사용한 뒤 다음 카드를 교환할 수 있습니다. 처음 받은 1회를 포함해 최대 13회입니다.</li><li>당첨, 직접 중단, 또는 SPIN과 카드 소진 시 종료합니다. 당첨 후 남은 SPIN은 사용하지 않습니다.</li></ul></details>
     </section>${footer(1)}`;
   }
   function playScreen() {
@@ -92,23 +91,23 @@
   }
 
   function cancelScreen() {
-    return `<section class="panel cancel-panel"><div class="big-glyph">◇</div><div class="eyebrow">[ TRADE CANCELLED ]</div><h1>교환을 중단합니다.</h1><p>남은 정보는 그대로 유지됩니다.</p><div class="remaining-chip">유지한 카드 <b>${availableCards().length}</b><span>사용한 카드 <b>${state.used.length}</b></span></div><div class="actions"><button class="primary" data-action="finish">나의 선택 확인하기 →</button><button class="text-button" data-action="${state.spins ? 'play' : 'trade'}">${state.spins ? '남은 SPIN으로 돌아가기' : '카드 선택으로 돌아가기'}</button></div></section>${footer(1)}`;
+    return `<section class="panel cancel-panel"><div class="big-glyph">◇</div><div class="eyebrow">[TRADE CANCELLED]</div><h1>교환을 중단합니다.</h1><p>남은 정보는 그대로 유지됩니다.</p><div class="remaining-chip">유지한 카드 <b>${availableCards().length}</b><span>사용한 카드 <b>${state.used.length}</b></span></div><div class="actions"><button class="primary" data-action="finish">나의 선택 확인하기 →</button><button class="text-button" data-action="${state.spins ? 'play' : 'trade'}">${state.spins ? '남은 SPIN으로 돌아가기' : '카드 선택으로 돌아가기'}</button></div></section>${footer(1)}`;
   }
   function jackpotScreen() {
     return `<section class="jackpot-screen"><div class="jackpot-sparks" aria-hidden="true">${Array.from({ length: 16 }, (_, i) => `<i style="--i:${i}">✦</i>`).join('')}</div><button class="jackpot-touch" data-action="finish"><span class="eyebrow">THREE OF A KIND</span><h1>JACKPOT!</h1>${resultSymbols()}<span class="reward-badge">${icon} 상품 당첨 ${icon}</span><p>이 화면을 운영진에게 보여주세요.</p><span class="small">당첨으로 룰렛이 종료됩니다. 남은 SPIN ${state.spins}회</span><span class="touch-prompt">화면을 터치해주세요</span><span class="small">키보드는 Enter를 눌러 계속할 수 있습니다.</span></button></section>${footer(1)}`;
   }
   function revealScreen() {
     const count = state.used.length;
-    return `<section class="reveal-scene"><div class="reveal-kicker"><del>BLACK SWAN ROULETTE</del><span>CONSENT TEST</span></div><div class="reveal-main"><p class="scene-label">THE GAME IS OVER</p><h1>룰렛은 끝났습니다.<br><em>선택은 남았습니다.</em></h1><p class="reveal-line">${count ? `당신은 <strong>${count}장의 정보</strong>를 건넸습니다.<br>이제 그 정보들을, 다른 쪽에서 바라봅니다.` : '당신은 정보를 건네지 않았습니다.<br>그 선택도 이 경험의 일부입니다.'}</p></div><button class="story-next" data-action="used">${count ? '내가 건넨 정보 보기' : '나의 선택 돌아보기'}<span aria-hidden="true">→</span></button><span class="scene-footnote">${state.won ? '당첨 이후에도, 교환한 카드의 기록은 남아 있습니다.' : count ? '보상을 얻지 못해도, 교환한 카드의 기록은 남아 있습니다.' : '이번 게임에서 사용한 개인정보 카드 0장'}</span>${clearButton()}</section>`;
+    return `<section class="reveal-scene"><div class="reveal-kicker"><del>BLACK SWAN ROULETTE</del><span>CONSENT TEST</span></div><div class="reveal-main"><p class="scene-label">THE GAME IS OVER</p><h1>룰렛은 끝났습니다.<br><em>선택은 남았습니다.</em></h1><p class="reveal-line">${count ? `당신은 <strong>${count}장의 정보</strong>를 건넸습니다.<br>이제 그 정보들을, 다른 쪽에서 바라봅니다.` : '당신은 정보를 건네지 않았습니다.<br>그 선택도 이 경험의 일부입니다.'}</p></div><button class="story-next" data-action="used">${count ? '내가 건넨 정보 보기' : '나의 선택 돌아보기'}<span aria-hidden="true">→</span></button><span class="scene-footnote">${state.won ? '당첨 이후에도, 교환한 카드의 기록은 남아 있습니다.' : count ? '보상을 얻지 못해도, 교환한 카드의 기록은 남아 있습니다.' : '이번 게임에서 사용한 개인정보 카드 0장'}</span></section>`;
   }
   function usedScreen() {
     const used = usedCards(), earned = used.reduce((sum, card) => sum + card.stars, 0);
     const kept = availableCards();
     return `<section class="evidence-screen"><header class="evidence-header"><span class="scene-label">01 / YOUR EXCHANGE</span><h1>${used.length ? `당신에게는 <em>${earned}번의 기회.</em><br>상대에게는 <em>${used.length}장의 정보.</em>` : '여섯 장 모두,<br>당신에게 남았습니다.'}</h1><p>${used.length ? '보상을 기다리는 동안, 다음 정보들이 같은 사람의 기록으로 모였습니다.' : '정보를 제공하지 않고 게임을 마쳤습니다.'}</p></header>
-      <div class="evidence-ledger">${used.map((card, i) => `<article class="evidence-row" style="--entry:${i}"><span class="evidence-order">${String(i + 1).padStart(2, '0')}</span><img src="${esc(personal.get(card.id)?.photoUrl || asset(card.file))}" alt="" width="1024" height="1536"><div><span>${card.name}</span><strong>${esc(personal.fact(card.id).value)}</strong></div><span class="evidence-price">+${card.stars} SPIN</span></article>`).join('') || '<div class="no-evidence">아직 연결할 정보가 없습니다.</div>'}</div>
+      <div class="evidence-ledger">${used.map((card, i) => `<article class="evidence-row" style="--entry:${i}"><span class="evidence-order">${String(i + 1).padStart(2, '0')}</span><img src="${asset(card.file)}" alt="" width="1024" height="1536"><div><span>${card.name}</span><strong>${esc(personal.fact(card.id).value)}</strong></div><span class="evidence-price">+${card.stars} SPIN</span></article>`).join('') || '<div class="no-evidence">아직 연결할 정보가 없습니다.</div>'}</div>
       ${kept.length && used.length ? `<p class="kept-line">남겨둔 정보 <strong>${kept.map(card => card.name).join(' · ')}</strong></p>` : ''}
       <div class="evidence-question"><h2>${used.length >= 2 ? '하지만, 따로 건넨 정보가<br>서로 연결된다면?' : used.length ? '이 한 장은,<br>어떤 단서로 남을까요?' : '다음에 정보를 요청받는다면,<br>무엇을 먼저 확인할까요?'}</h2><button class="story-next" data-action="combine">${used.length >= 2 ? '정보 연결하기' : '이 선택의 의미 보기'}<span aria-hidden="true">→</span></button></div>
-      ${clearButton()}<p class="scene-footnote">직접 작성해 교환한 내용입니다. 외부 검색 없이, 교환한 정보끼리만 연결합니다.</p></section>`;
+      <p class="scene-footnote">직접 작성해 교환한 내용입니다. 외부 검색 없이, 교환한 정보끼리만 연결합니다.</p></section>`;
   }
 
   function graphMarkup(used) {
@@ -119,17 +118,17 @@
   }
   function combinedScreen(loading) {
     const used = usedCards();
-    if (loading) return `<section class="linking-scene"><span class="scene-label">02 / CONNECTING THE DOTS</span><h1>${used.length > 1 ? 'COMBINING DATA' : '당신의 선택을 살펴봅니다'}</h1>${graphMarkup(used)}<p>${used.length > 1 ? '따로였던 정보가, 한 사람을 향합니다.' : used.length ? '정보의 의미는, 쓰이는 맥락에 따라 달라집니다.' : '이번에는 연결할 개인정보가 없습니다.'}</p><button class="text-button" data-action="show-conclusion">결과 바로 보기</button>${clearButton()}</section>`;
+    if (loading) return `<section class="linking-scene"><span class="scene-label">02 / CONNECTING THE DOTS</span><h1>${used.length > 1 ? 'COMBINING DATA' : '당신의 선택을 살펴봅니다'}</h1>${graphMarkup(used)}<p>${used.length > 1 ? '따로였던 정보가, 한 사람을 향합니다.' : used.length ? '정보의 의미는, 쓰이는 맥락에 따라 달라집니다.' : '이번에는 연결할 개인정보가 없습니다.'}</p><button class="text-button" data-action="show-conclusion">결과 바로 보기</button></section>`;
     const cases = casesFor(state.used), item = cases[state.caseIndex];
     const last = state.caseIndex === cases.length - 1;
     return `<section class="dossier-screen" aria-labelledby="conclusion-title"><header class="dossier-header"><span class="scene-label">${used.length >= 2 ? 'PROFILE CREATED' : used.length ? 'ONE PIECE OF DATA' : 'NO DATA SHARED'}</span><span>연결 ${String(state.caseIndex + 1).padStart(2, '0')} / ${String(cases.length).padStart(2, '0')}</span></header>
-      <div class="dossier-layout"><aside class="dossier-sources"><h2>당신이 건넨 정보</h2><div class="source-chain">${item.ids.map(id => `<div class="source-fact" data-source="${id}"><span>${exampleFacts[id].label}</span><strong>${esc(personal.fact(id).value)}</strong>${personal.get(id)?.photoUrl ? `<img class="source-photo" src="${esc(personal.get(id).photoUrl)}" alt="선택한 사진">` : ''}</div>`).join('') || '<p class="source-empty">사용한 카드 없음</p>'}</div><div class="connection-terminal"><span aria-hidden="true">↓</span>${item.ids.length > 1 ? '함께 연결하면' : '이 선택으로부터'}</div></aside>
+      <div class="dossier-layout"><aside class="dossier-sources"><h2>당신이 건넨 정보</h2><div class="source-chain">${item.ids.map(id => `<div class="source-fact" data-source="${id}"><span>${exampleFacts[id].label}</span><strong>${esc(personal.fact(id).value)}</strong></div>`).join('') || '<p class="source-empty">사용한 카드 없음</p>'}</div><div class="connection-terminal"><span aria-hidden="true">↓</span>${item.ids.length > 1 ? '함께 연결하면' : '이 선택으로부터'}</div></aside>
       <article class="conclusion" tabindex="-1"><span class="conclusion-label">${item.ids.length > 1 ? '추정할 수 있는 것' : '남은 정보의 의미'}</span><h1 id="conclusion-title">${esc(item.title).replaceAll('\n', '<br>')}</h1><blockquote>${esc(item.inference)}</blockquote><div class="consequence"><h2>왜 달라질까요?</h2><p>${esc(item.consequence)}</p></div><p class="inference-limit">${esc(item.limit)}</p></article></div>
-      <footer class="dossier-footer"><div class="scenario-risk"><span>정보 ${item.ids.length > 1 ? '결합 ' : ''}위험도</span><strong aria-label="${item.level}/5">${'★'.repeat(item.level)}<i>${'☆'.repeat(5-item.level)}</i></strong><small>교환 가치와 별개의 교육용 시나리오 지표</small></div><nav aria-label="정보 연결 결과"><button class="story-back" data-action="case-prev" ${!state.caseIndex ? 'disabled' : ''}>이전</button><button class="story-next" data-action="${last ? 'credits' : 'case-next'}">${last ? '마지막 이야기' : '다른 연결 보기'}<span aria-hidden="true">→</span></button></nav></footer>${clearButton()}</section>`;
+      <footer class="dossier-footer"><div class="scenario-risk"><span>정보 ${item.ids.length > 1 ? '결합 ' : ''}위험도</span><strong aria-label="${item.level}/5">${'★'.repeat(item.level)}<i>${'☆'.repeat(5-item.level)}</i></strong><small>교환 가치와 별개의 교육용 시나리오 지표</small></div><nav aria-label="정보 연결 결과"><button class="story-back" data-action="case-prev" ${!state.caseIndex ? 'disabled' : ''}>이전</button><button class="story-next" data-action="${last ? 'credits' : 'case-next'}">${last ? '마지막 이야기' : '다른 연결 보기'}<span aria-hidden="true">→</span></button></nav></footer></section>`;
   }
   function creditsScreen() {
-    const chapter = chapters[state.chapter], last = state.chapter === chapters.length - 1;
-    return `<section class="reading-room" aria-labelledby="chapter-title"><header class="reading-header"><span>CONSENT TEST</span><span>${String(state.chapter + 1).padStart(2, '0')} / ${String(chapters.length).padStart(2, '0')}</span></header><article class="reading-page" tabindex="-1"><span class="chapter-label">${chapter.label}</span><h1 id="chapter-title">${chapter.title.replaceAll('\n', '<br>')}</h1><div class="chapter-copy">${chapter.paragraphs.map(text => `<p>${text}</p>`).join('')}</div>${chapter.closing ? `<p class="chapter-closing">${chapter.closing}</p>` : ''}</article><footer class="reading-footer">${state.chapter === 0 ? '<p class="session-cleared">입력한 내용과 선택한 사진은 이 게임에서 지웠습니다.</p>' : ''}<div class="reading-progress" aria-label="총 ${chapters.length}장 중 ${state.chapter+1}장">${chapters.map((_,i)=>`<span class="${i <= state.chapter ? 'read' : ''}"></span>`).join('')}</div><nav aria-label="엔딩 이야기"><button class="story-back" data-action="chapter-prev" ${state.chapter === 0 ? 'disabled' : ''}>이전 문장</button><button class="story-next" data-action="${last ? 'end' : 'chapter-next'}">${last ? '게임 마치기' : '다음 문장'}<span aria-hidden="true">→</span></button></nav></footer></section>`;
+    const chapter = chapters[state.chapter];
+    return `<section class="reading-room" aria-labelledby="chapter-title" aria-live="polite"><header class="reading-header"><span>CONSENT TEST</span><span>${String(state.chapter + 1).padStart(2, '0')} / ${String(chapters.length).padStart(2, '0')}</span></header><article class="reading-page" tabindex="-1"><span class="chapter-label">${chapter.label}</span><h1 id="chapter-title">${chapter.title.replaceAll('\n', '<br>')}</h1><div class="chapter-copy">${chapter.paragraphs.map(text => `<p>${text}</p>`).join('')}</div></article><footer class="reading-footer">${state.chapter === 0 ? '<p class="session-cleared">입력한 내용과 선택한 정보는 이 게임에서 지웠습니다.</p>' : ''}<div class="reading-progress" style="--chapters:${chapters.length}" aria-label="총 ${chapters.length}장 중 ${state.chapter+1}장">${chapters.map((_,i)=>`<span class="${i < state.chapter ? 'complete' : i === state.chapter ? 'active' : ''}"></span>`).join('')}</div><div class="reading-autoplay"><span>7초 후 자동으로 이어집니다</span><button class="story-back" data-action="end">이야기 건너뛰기</button></div></footer></section>`;
   }
   function endedScreen() {
     return `<section class="end-scene"><span class="scene-label">BLACK SWAN / CONSENT TEST</span><h1>당신의 정보.<br><em>당신의 선택.</em></h1><p>게임이 끝났습니다.</p><div><button class="story-back" data-action="read-again">마지막 이야기 다시 읽기</button><button class="story-back" data-action="restart">처음으로</button></div><p class="music-credit">Music by <a href="https://blackvoid6.com/" target="_blank" rel="noopener noreferrer">Blackvoid6</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></p></section>`;
@@ -140,15 +139,27 @@
     syncSoundtrack();
     const exchange = app.querySelector('.exchange-dialog');
     if (exchange) { exchange.showModal(); exchange.addEventListener('cancel', event => { event.preventDefault(); void action('cancel'); }); }
-    document.getElementById('clear-session').hidden = ['home', 'how', 'credits', 'ended'].includes(state.screen) || state.spinning;
     document.body.classList.toggle('in-story', ['reveal', 'used', 'combining', 'combined', 'credits', 'ended'].includes(state.screen));
     if (state.screen === 'combining') later(() => { if (state.screen === 'combining') go('combined'); }, reducedMotion ? 150 : 2600);
+    if (state.screen === 'credits') later(() => {
+      if (state.screen !== 'credits') return;
+      if (state.chapter < chapters.length - 1) { state.chapter++; go('credits'); }
+      else go('ended');
+    }, 7000);
     if (state.screen === 'jackpot') later(() => document.querySelector('.jackpot-touch')?.focus({ preventScroll: true }), 50);
   }
-  function randomSymbol() {
+  function randomIndex(maxExclusive) {
     const values = new Uint32Array(1); let value;
-    do { crypto.getRandomValues(values); value = values[0]; } while (value === 4294967295);
-    return value % symbols.length;
+    const limit = Math.floor(0x100000000 / maxExclusive) * maxExclusive;
+    do { crypto.getRandomValues(values); value = values[0]; } while (value >= limit);
+    return value % maxExclusive;
+  }
+  const randomSymbol = () => randomIndex(symbols.length);
+  function drawOutcome(distinctSymbols) {
+    if (!distinctSymbols) return [randomSymbol(), randomSymbol(), randomSymbol()];
+    const remaining = symbols.map((_, index) => index), outcome = [];
+    while (remaining.length) outcome.push(remaining.splice(randomIndex(remaining.length), 1)[0]);
+    return outcome;
   }
   async function rollReel(index, result) {
     const reel = document.querySelector(`[data-reel="${index}"]`);
@@ -189,8 +200,8 @@
     if (!['play', 'miss'].includes(state.screen) || state.spinning || state.spins < 1) return;
     const spinState = state;
     state.screen = 'play'; state.receipt = null; state.spinning = true; state.spins--; state.rounds++;
-    // Every spin, including the first granted chance, draws independently.
-    const outcome = [randomSymbol(), randomSymbol(), randomSymbol()]; render(); say('룰렛을 돌립니다.');
+    // The first two chances use each symbol exactly once; normal odds begin on spin three.
+    const outcome = drawOutcome(state.rounds <= 2); render(); say('룰렛을 돌립니다.');
     document.querySelector('.machine')?.setAttribute('aria-busy', 'true');
     let tick = 0;
     const cycle = reducedMotion ? null : setInterval(() => {
@@ -244,7 +255,6 @@
       case 'spin': await spin(); break;
       case 'trade': if (['miss', 'cancel'].includes(state.screen) && state.spins === 0 && availableCards().length) { state.selected = []; go('trade'); } break;
       case 'confirm-trade': confirmTrade(); break;
-      case 'clear-session': personal.clear(); state = freshState(); go('home'); say('입력한 정보와 게임 기록을 지웠습니다.'); break;
       case 'cancel': if (['trade', 'miss'].includes(state.screen)) { personal.clearDraft(); state.selected = []; go('cancel'); } break;
       case 'finish': if (['play', 'miss', 'cancel', 'jackpot'].includes(state.screen)) { state.selected = []; go('reveal'); } break;
       case 'used': if (state.screen === 'reveal') go('used'); break;
@@ -253,16 +263,12 @@
       case 'case-next': if (state.screen === 'combined' && state.caseIndex < casesFor(state.used).length - 1) { state.caseIndex++; go('combined'); } break;
       case 'case-prev': if (state.screen === 'combined' && state.caseIndex > 0) { state.caseIndex--; go('combined'); } break;
       case 'credits': if (state.screen === 'combined') { state.chapter = 0; go('credits'); } break;
-      case 'chapter-next': if (state.screen === 'credits' && state.chapter < chapters.length - 1) { state.chapter++; go('credits'); } break;
-      case 'chapter-prev': if (state.screen === 'credits' && state.chapter > 0) { state.chapter--; go('credits'); } break;
-      case 'end': if (state.screen === 'credits' && state.chapter === chapters.length - 1) go('ended'); break;
+      case 'end': if (state.screen === 'credits') go('ended'); break;
       case 'read-again': if (state.screen === 'ended') { state.chapter = 0; go('credits'); } break;
       case 'restart': if (state.screen === 'ended') { personal.clear(); state = freshState(); go('home'); say('새 게임을 시작합니다.'); } break;
     }
   }
   app.addEventListener('input', personal.input);
-  app.addEventListener('change', event => void personal.file(event));
-  document.getElementById('clear-session').addEventListener('click', () => void action('clear-session'));
   window.addEventListener('pagehide', () => { personal.clear(); state = freshState(); go('home'); });
   app.addEventListener('click', event => {
     const card = event.target.closest('[data-card]'); if (card && !card.disabled) return toggleCard(card.dataset.card);
@@ -280,7 +286,6 @@
   document.addEventListener('keydown', event => {
     if (event.repeat || event.altKey || event.ctrlKey || event.metaKey) return;
     if (event.code === 'Space' && ['play', 'miss'].includes(state.screen) && !event.target.closest('button,a')) { event.preventDefault(); void spin(); }
-    if (state.screen === 'credits' && ['ArrowLeft', 'ArrowRight'].includes(event.key)) { event.preventDefault(); void action(event.key === 'ArrowLeft' ? 'chapter-prev' : 'chapter-next'); }
     if (state.screen === 'combined' && ['ArrowLeft', 'ArrowRight'].includes(event.key)) { event.preventDefault(); void action(event.key === 'ArrowLeft' ? 'case-prev' : 'case-next'); }
   });
 
@@ -290,7 +295,7 @@
     const snapshot = () => ({ screen: state.screen, spins: state.spins, rounds: state.rounds, usedCards: [...state.used], selectedCards: [...state.selected], spinning: state.spinning, won: state.won, caseIndex: state.caseIndex, chapter: state.chapter });
     const register = tool => { try { Promise.resolve(document.modelContext.registerTool(tool, { signal: lifecycle.signal })).catch(() => {}); } catch {} };
     register({ name: 'read_roulette_state', title: '현재 게임 상태 확인', description: '현재 화면, 남은 SPIN과 선택·교환한 카드 종류를 읽습니다.', inputSchema: { type: 'object', properties: {}, additionalProperties: false }, annotations: { readOnlyHint: true }, execute: snapshot });
-    register({ name: 'advance_roulette', title: '게임 화면에서 행동하기', description: '현재 표시된 행동을 실행합니다. confirm-trade는 카드를 소비하고 SPIN을 추가합니다. spin은 SPIN 1회를 소비하고 결과까지 기다립니다.', inputSchema: { type: 'object', properties: { action: { type: 'string', enum: ['start', 'play', 'spin', 'trade', 'confirm-trade', 'cancel', 'finish', 'used', 'combine', 'show-conclusion', 'case-next', 'case-prev', 'credits', 'chapter-next', 'chapter-prev', 'end', 'read-again', 'restart', 'clear-session'] } }, required: ['action'], additionalProperties: false }, annotations: { readOnlyHint: false }, async execute(input) {
+    register({ name: 'advance_roulette', title: '게임 화면에서 행동하기', description: '현재 표시된 행동을 실행합니다. confirm-trade는 카드를 소비하고 SPIN을 추가합니다. spin은 SPIN 1회를 소비하고 결과까지 기다립니다.', inputSchema: { type: 'object', properties: { action: { type: 'string', enum: ['start', 'play', 'spin', 'trade', 'confirm-trade', 'cancel', 'finish', 'used', 'combine', 'show-conclusion', 'case-next', 'case-prev', 'credits', 'end', 'read-again', 'restart'] } }, required: ['action'], additionalProperties: false }, annotations: { readOnlyHint: false }, async execute(input) {
       if (!input || typeof input.action !== 'string' || Object.keys(input).some(key => key !== 'action') || !Array.from(app.querySelectorAll('[data-action]')).some(button => button.dataset.action === input.action && !button.disabled)) throw new Error('현재 화면에서 사용할 수 없는 행동입니다.');
       await action(input.action); return snapshot();
     } });
