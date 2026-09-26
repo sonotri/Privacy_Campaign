@@ -52,6 +52,7 @@
     if (chosen.length) return chosen.slice(0, 3).map(personalize);
     return [{ ids: selected, level: 2, title: '따로였던 정보가,\n같은 사람의 기록이 됩니다.', inference: selected.map(id => `${resolved[id].label}: ${resolved[id].value}`).join(' · '), consequence: '각각의 정보만 볼 때보다 여러 특징을 함께 가진 대상으로 분류할 수 있습니다. 제공하는 항목 수뿐 아니라 어떤 기록과 함께 쓰이는지 확인해야 하는 이유입니다.', limit: '이 조합만으로 이름, 거주지, 온라인 계정 등을 확정할 수는 없습니다.' }];
   }
+  // 마지막 이야기 문구는 이 chapters 배열에서 수정합니다.
   const chapters = [
     { label: '보상 뒤의 선택', title: '이번 게임을 통해\n살펴보고자 했던 것은,', paragraphs: ['당첨 여부가 아니라 보상을 얻기 위한 순간에 우리가 어떤 개인정보를 선택하게 되는지였습니다.'] },
     { label: '게임을 진행하며', title: '어떤 정보는 가볍게 느껴졌고,', paragraphs: ['어떤 정보는 조금 더 고민하게 만들었을 겁니다.', '하지만 개인정보의 가치는 <strong>하나의 정보만으로 결정되지 않습니다.</strong>'] },

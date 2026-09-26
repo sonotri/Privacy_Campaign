@@ -128,7 +128,7 @@
   }
   function creditsScreen() {
     const chapter = chapters[state.chapter];
-    return `<section class="reading-room" aria-labelledby="chapter-title" aria-live="polite"><header class="reading-header"><span>CONSENT TEST</span><span>${String(state.chapter + 1).padStart(2, '0')} / ${String(chapters.length).padStart(2, '0')}</span></header><article class="reading-page" tabindex="-1"><span class="chapter-label">${chapter.label}</span><h1 id="chapter-title">${chapter.title.replaceAll('\n', '<br>')}</h1><div class="chapter-copy">${chapter.paragraphs.map(text => `<p>${text}</p>`).join('')}</div></article><footer class="reading-footer">${state.chapter === 0 ? '<p class="session-cleared">입력한 내용과 선택한 정보는 이 게임에서 지웠습니다.</p>' : ''}<div class="reading-progress" style="--chapters:${chapters.length}" aria-label="총 ${chapters.length}장 중 ${state.chapter+1}장">${chapters.map((_,i)=>`<span class="${i < state.chapter ? 'complete' : i === state.chapter ? 'active' : ''}"></span>`).join('')}</div><div class="reading-autoplay"><span>7초 후 자동으로 이어집니다</span><button class="story-back" data-action="end">이야기 건너뛰기</button></div></footer></section>`;
+    return `<section class="reading-room" aria-labelledby="chapter-title" aria-live="polite"><header class="reading-header"><span>CONSENT TEST</span><span>${String(state.chapter + 1).padStart(2, '0')} / ${String(chapters.length).padStart(2, '0')}</span></header><article class="reading-page" tabindex="-1"><span class="chapter-label">${chapter.label}</span><h1 id="chapter-title">${chapter.title.replaceAll('\n', '<br>')}</h1><div class="chapter-copy">${chapter.paragraphs.map(text => `<p>${text}</p>`).join('')}</div></article><footer class="reading-footer">${state.chapter === 0 ? '<p class="session-cleared">입력한 내용과 선택한 정보는 이 게임에서 지웠습니다.</p>' : ''}<div class="reading-progress" style="--chapters:${chapters.length}" aria-label="총 ${chapters.length}장 중 ${state.chapter+1}장">${chapters.map((_,i)=>`<span class="${i < state.chapter ? 'complete' : i === state.chapter ? 'active' : ''}"></span>`).join('')}</div><div class="reading-autoplay"><span>5초 후 자동으로 이어집니다</span><button class="story-back" data-action="end">이야기 건너뛰기</button></div></footer></section>`;
   }
   function endedScreen() {
     return `<section class="end-scene"><span class="scene-label">BLACK SWAN / CONSENT TEST</span><h1>당신의 정보.<br><em>당신의 선택.</em></h1><p>게임이 끝났습니다.</p><div><button class="story-back" data-action="read-again">마지막 이야기 다시 읽기</button><button class="story-back" data-action="restart">처음으로</button></div><p class="music-credit">Music by <a href="https://blackvoid6.com/" target="_blank" rel="noopener noreferrer">Blackvoid6</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></p></section>`;
@@ -145,7 +145,7 @@
       if (state.screen !== 'credits') return;
       if (state.chapter < chapters.length - 1) { state.chapter++; go('credits'); }
       else go('ended');
-    }, 7000);
+    }, 5000);
     if (state.screen === 'jackpot') later(() => document.querySelector('.jackpot-touch')?.focus({ preventScroll: true }), 50);
   }
   function randomIndex(maxExclusive) {
