@@ -271,6 +271,7 @@
   app.addEventListener('input', personal.input);
   window.addEventListener('pagehide', () => { personal.clear(); state = freshState(); go('home'); });
   app.addEventListener('click', event => {
+    if (state.screen === 'home' && event.target.closest('.home-art')) { void action('start'); return; }
     const card = event.target.closest('[data-card]'); if (card && !card.disabled) return toggleCard(card.dataset.card);
     const button = event.target.closest('[data-action]'); if (button && !button.disabled) { beep(440, .04); void action(button.dataset.action); }
   });
