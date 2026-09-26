@@ -143,7 +143,7 @@
   function howTo() {
     return `<section class="briefing-screen" aria-labelledby="briefing-title">
       <div class="briefing-main">
-        <div class="briefing-copy"><h1 id="briefing-title">같은 심볼 3개,<br><em>JACKPOT.</em></h1><p>룰렛을 돌려 같은 심볼 3개를 맞춰보세요. <br>세 개의 심볼이 일치하면<br class="desktop-break"> 보상을 획득할 수 있습니다!</p><div class="briefing-reward">< aria-hidden="true"></div>
+        <div class="briefing-copy"><h1 id="briefing-title">같은 심볼 3개,<br><em>JACKPOT.</em></h1><p>룰렛을 돌려 같은 심볼 3개를 맞춰보세요. <br>세 개의 심볼이 일치하면<br class="desktop-break"> 보상을 획득할 수 있습니다!</p></div>
         <div class="briefing-demo" aria-label="백조 심볼 3개가 일치하는 당첨 예시">
           <div class="demo-orbit" aria-hidden="true"></div><div class="demo-orbit inner" aria-hidden="true"></div>
           <div class="demo-cards">${[0, 1, 2].map((i) => `<div class="demo-card" style="--card-index:${i}"><img src="${asset("swan.png")}" alt="${i + 1}번째 백조 심볼" width="1254" height="1254"><span>${String(i + 1).padStart(2, "0")}</span></div>`).join("")}</div>
