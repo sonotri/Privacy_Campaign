@@ -40,31 +40,19 @@
 
 <table align="center">
   <tr>
-    <td align="center" width="220" bgcolor="#ffffff">
+    <td align="center" width="220">
       <a href="https://github.com/sonotri">
         <img src="https://github.com/sonotri.png" width="96" alt="sonotri" /><br />
         <strong>sonotri</strong>
       </a><br />
       <sub>Planning · Design · Development · Operate</sub>
     </td>
-    <td align="center" width="220" bgcolor="#f3f4f6">
+    <td align="center" width="220">
       <a href="https://github.com/yebbis">
         <img src="https://github.com/yebbis.png" width="96" alt="yebbis" /><br />
         <strong>yebbis</strong>
       </a><br />
       <sub>Planning · Design · Development · Operate</sub>
     </td>
-    <td align="center" width="220" bgcolor="#ffffff">
-      <a href="https://github.com/EunjuYi">
-        <img src="https://github.com/EunjuYi.png" width="96" alt="yebbis" /><br />
-        <strong>EunjuYi</strong>
-      </a><br />
-      <sub>Design · Development · Operate</sub>
-    </td>
-    <td align="center" width="220" bgcolor="#f3f4f6">
-      <a href="https://github.com/umini1002">
-        <img src="https://github.com/umini1002.png" width="96" alt="yebbis" /><br />
-        <strong>umini1002</strong>
-      </a><br />
-      <sub>Design · Development · Operate</sub>
-    </td>
+  </tr>
+</table>
