@@ -54,5 +54,12 @@
       </a><br />
       <sub>Planning · Design · Development · Operate</sub>
     </td>
+        <td align="center" width="220">
+      <a href="https://github.com/EunjuYi">
+        <img src="https://github.com/EunjuYi.png" width="96" alt="EunjuYi" /><br />
+        <strong>EunjuYi</strong>
+      </a><br />
+      <sub>Planning · Operate</sub>
+    </td>
   </tr>
 </table>
