@@ -61,5 +61,12 @@
       </a><br />
       <sub>Planning · Operate</sub>
     </td>
+          <td align="center" width="220">
+        <a href="https://github.com/seungyeoneo">
+          <img src="https://github.com/seungyeoneo.png" width="96" alt="seungyeoneo" /><br />
+          <strong>seungyeoneo</strong>
+        </a><br />
+        <sub>Planning · Operate</sub>
+      </td>
   </tr>
 </table>
