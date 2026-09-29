@@ -68,5 +68,12 @@
         </a><br />
         <sub>Planning · Operate</sub>
       </td>
+      <td align="center" width="220">
+    <a href="https://github.com/umini1002">
+        <img src="https://github.com/umini1002.png" width="96" alt="umini1002" /><br />
+        <strong>umini1002</strong>
+    </a><br />
+    <sub>Planning · Operate</sub>
+</td>
   </tr>
 </table>
